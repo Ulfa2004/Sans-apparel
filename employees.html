@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management - SANS APPAREL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/employees.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/></svg>
+                <span>SANS APPAREL</span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">Dashboard</a>
+                <a href="employees.html" class="menu-item active">Employees</a>
+                <a href="attendance.html" class="menu-item">Check In/Out</a>
+                <a href="history.html" class="menu-item">History Records</a>
+                <a href="settings.html" class="menu-item">Settings</a>
+            </button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <button class="menu-toggle" id="menuToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+                <div class="clock-display" id="realtimeClock">00:00:00 PM</div>
+            </header>
+
+            <div class="content-body">
+                <div class="action-header">
+                    <h2>Corporate Registry</h2>
+                    <button class="btn-primary" id="btnOpenAddModal">Add New Personnel</button>
+                </div>
+
+                <div class="card data-card">
+                    <div class="filter-bar">
+                        <input type="text" id="empSearch" placeholder="Search by name, ID or email...">
+                        <select id="deptFilter">
+                            <option value="">All Corporate Departments</option>
+                            <option value="Production">Production</option>
+                            <option value="Design">Design & Development</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Operations">Operations</option>
+                        </select>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Identity</th>
+                                    <th>Full Name</th>
+                                    <th>Department</th>
+                                    <th>Position</th>
+                                    <th>System Role</th>
+                                    <th>Account Status</th>
+                                    <th>Management Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employeeTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Personnel Administration Modal -->
+    <div class="modal hidden" id="employeeModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Register Corporate Personnel</h3>
+                <button class="close-modal" id="btnCloseModal">&times;</button>
+            </div>
+            <form id="employeeForm">
+                <input type="hidden" id="editUserId">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="formEmail">Corporate Email Address (Used for Account Sign In)</label>
+                        <input type="email" id="formEmail" required placeholder="user@sansapparel.com">
+                    </div>
+                    <div class="form-group" id="passGroup">
+                        <label for="formPassword">Initial Authentication Password</label>
+                        <input type="password" id="formPassword" placeholder="Minimum 6 complex characters">
+                    </div>
+                    <div class="form-group">
+                        <label for="formName">Full Name</label>
+                        <input type="text" id="formName" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="formPhone">Phone Number</label>
+                            <input type="text" id="formPhone">
+                        </div>
+                        <div class="form-group">
+                            <label for="formDept">Department</label>
+                            <select id="formDept" required>
+                                <option value="Production">Production</option>
+                                <option value="Design">Design & Development</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Operations">Operations</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="formPosition">Position</label>
+                            <input type="text" id="formPosition" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formRole">System Permission Tier</label>
+                            <select id="formRole" required>
+                                <option value="employee">Employee</option>
+                                <option value="admin">Administrator</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="btnCancelModal">Cancel</button>
+                    <button type="submit" class="btn-primary" id="btnSaveEmployee">Save System Record</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/employees.js"></script>
+</body>
+</html>

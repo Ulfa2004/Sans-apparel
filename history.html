@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System History Log - SANS APPAREL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/></svg>
+                <span>SANS APPAREL</span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">Dashboard</a>
+                <a href="employees.html" class="menu-item">Employees</a>
+                <a href="attendance.html" class="menu-item">Check In/Out</a>
+                <a href="history.html" class="menu-item active">History Records</a>
+                <a href="settings.html" class="menu-item">Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <button class="menu-toggle" id="menuToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+                <div class="clock-display" id="realtimeClock">00:00:00 PM</div>
+            </header>
+
+            <div class="content-body">
+                <div class="action-header no-print">
+                    <h2>Historical Audit Trail</h2>
+                    <div class="export-buttons">
+                        <button class="btn-secondary" id="btnPrint">Print System PDF Document</button>
+                        <button class="btn-primary" id="btnExport">Export Spreadsheet Matrix</button>
+                    </div>
+                </div>
+
+                <div class="card data-card printable-area">
+                    <div class="filter-bar no-print" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                        <input type="text" id="historySearch" placeholder="Search Employee Corporate ID...">
+                        <input type="date" id="historyDate">
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table id="historyTable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Emp ID</th>
+                                    <th>Name</th>
+                                    <th>Check In Timestamp</th>
+                                    <th>Check Out Timestamp</th>
+                                    <th>Calculated Metric</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/history.js"></script>
+</body>
+</html>

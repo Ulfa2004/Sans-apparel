@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punch Session - SANS APPAREL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/attendance.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/></svg>
+                <span>SANS APPAREL</span>
+            </div>
+            <nav class="sidebar-menu" id="dynamicMenu"></nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+                <div class="clock-display" id="realtimeClock">00:00:00 PM</div>
+            </header>
+
+            <div class="content-body central-flex">
+                <div class="card attendance-card animate-fade">
+                    <div class="card-inner">
+                        <div class="profile-frame">
+                            <img src="assets/avatar.png" id="empPhoto" class="emp-avatar" alt="Employee Photo">
+                            <h2 id="empName">Loading Profile...</h2>
+                            <p id="empDept" class="badge-dept">-</p>
+                        </div>
+                        
+                        <div class="datetime-block">
+                            <p class="current-date" id="attendanceDate">Thursday, July 12, 2026</p>
+                            <p class="current-time-large" id="attendanceTime">00:00:00</p>
+                        </div>
+
+                        <div class="form-group margin-y">
+                            <label for="attendanceNote">Session Memo / Note (Optional)</label>
+                            <input type="text" id="attendanceNote" placeholder="e.g., Working Remotely, Client Site">
+                        </div>
+
+                        <div class="action-grid">
+                            <button id="btnCheckIn" class="btn-action check-in" disabled>
+                                <span>Check In</span>
+                            </button>
+                            <button id="btnCheckOut" class="btn-action check-out" disabled>
+                                <span>Check Out</span>
+                            </button>
+                        </div>
+
+                        <div id="statusAlert" class="status-alert hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Complete operational success animation element -->
+    <div id="successOverlay" class="success-overlay hidden">
+        <div class="success-card">
+            <div class="success-checkmark">
+                <div class="check-icon"></div>
+            </div>
+            <h3>Transaction Approved</h3>
+            <p id="successMessage">Attendance recorded successfully.</p>
+        </div>
+    </div>
+
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/attendance.js"></script>
+</body>
+</html>

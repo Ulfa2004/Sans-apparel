@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Configurations - SANS APPAREL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/></svg>
+                <span>SANS APPAREL</span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">Dashboard</a>
+                <a href="employees.html" class="menu-item">Employees</a>
+                <a href="attendance.html" class="menu-item">Check In/Out</a>
+                <a href="history.html" class="menu-item">History Records</a>
+                <a href="settings.html" class="menu-item active">Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <button class="menu-toggle" id="menuToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+                <div class="clock-display" id="realtimeClock">00:00:00 PM</div>
+            </header>
+
+            <div class="content-body" style="max-width: 800px;">
+                <h2>System Configurations & Profile</h2>
+                
+                <div class="card data-card" style="margin-bottom: 24px;">
+                    <h3>SANS APPAREL Corporate Profile</h3>
+                    <div style="margin-top: 16px;">
+                        <div class="form-group">
+                            <label>Company Enterprise Legal Name</label>
+                            <input type="text" value="SANS APPAREL" readonly style="background: #F3F4F6; cursor: not-allowed;">
+                        </div>
+                        <div class="form-group" style="margin-top: 16px;">
+                            <label>Default Enterprise Branding System Color</label>
+                            <div style="display: flex; align-items: center; gap: 12px; margin-top: 8px;">
+                                <div style="width: 36px; height: 36px; background: #16A34A; border-radius: 8px;"></div>
+                                <span>#16A34A (Corporate Emerald Green)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card data-card">
+                    <h3>Modify User Password</h3>
+                    <form id="changePasswordForm" style="margin-top: 16px;">
+                        <div class="form-group">
+                            <label for="newPassword">New Cryptographic Secure Password</label>
+                            <input type="password" id="newPassword" required placeholder="Minimum 6 characters">
+                        </div>
+                        <button type="submit" class="btn-primary" style="margin-top: 16px;">Commit Password Update</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/settings.js"></script>
+</body>
+</html>
